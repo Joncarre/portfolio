@@ -1,14 +1,8 @@
-<div align="center">
-  <img alt="Logo" src="../../src/images/logo.png" width="100" />
-</div>
-<h1 align="center">
-  Portfolio
+## 🚀 Portfolio
 
-> 🚀 This portfolio is based on a design created by [Brittany Chiang](https://brittanychiang.com/). I've made some structural and design modifications to the original template while maintaining the essence of her excellent work. Many thanks to Brittany for her amazing contribution to the open-source community!
+This portfolio is based on a design created by [Brittany Chiang](https://brittanychiang.com/). I've made some structural and design modifications to the original template while maintaining the essence of her excellent work. Many thanks to Brittany for her amazing contribution to the open-source community!
 
-</h1>
-
-![demo](../../static/hero.png)
+![Hero Image](/static/hero.png)
 
 ## 🚧 Work in Progress
 
