@@ -164,6 +164,145 @@ const StyledTabPanel = styled.div`
   }
 `;
 
+const StyledQuotesGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-gap: 15px;
+  margin-top: 50px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const StyledQuoteCard = styled.div`
+  width: 100%;
+  height: 100%;
+  padding: 25px;
+  border-radius: var(--border-radius);
+  background-color: var(--navy); /* Cambiado de var(--light-navy) a var(--navy) */
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(0deg, transparent, transparent 30%, rgba(233, 215, 165, 0.3));
+    transform: rotate(-45deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+    z-index: 1;
+  }
+
+  &:hover,
+  &:focus-within {
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(233, 215, 165, 0.5);
+
+    &::before {
+      opacity: 1;
+      transform: rotate(-45deg) translateY(100%);
+    }
+
+    .quote-author a {
+      color: var(--green);
+    }
+  }
+
+  .quote-text {
+    color: var(--light-slate);
+    font-size: var(--fz-lg);
+    line-height: 1.5;
+    margin-bottom: 15px;
+    font-style: italic;
+    position: relative;
+    z-index: 2;
+    padding: 0 10px;
+
+    &::before,
+    &::after {
+      font-family: 'Georgia', serif;
+      font-size: 2.5rem;
+      line-height: 0;
+      position: relative;
+      color: #e9d7a5; /* Color dorado que coincide con tu tema */
+      font-style: normal;
+    }
+
+    &::before {
+      content: '\\201C'; /* Comilla inicial estilizada Unicode */
+      margin-right: 5px;
+      vertical-align: -0.3em;
+    }
+
+    &::after {
+      content: '\\201D'; /* Comilla final estilizada Unicode */
+      margin-left: 5px;
+      vertical-align: -0.4em;
+    }
+  }
+
+  .quote-author {
+    color: var(--slate);
+    font-family: var(--font-mono);
+    font-size: var(--fz-sm);
+    text-align: right;
+    position: relative;
+    z-index: 2;
+
+    a {
+      position: relative;
+      display: inline-block;
+      color: var(--lightest-slate);
+      text-decoration: none;
+      transition: var(--transition);
+
+      /* Variable para el color dorado en formato RGB */
+      --link-color: 233, 215, 165;
+
+      &:hover {
+        color: rgb(var(--link-color));
+      }
+
+      &:hover::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 0.05em;
+        bottom: -0.2em; /* Más separado de la palabra */
+
+        /* Gradiente dorado que se desvanece en los extremos */
+        background-image: linear-gradient(
+          to right,
+          transparent 0%,
+          rgba(var(--link-color), 0.6) 30%,
+          rgba(var(--link-color), 0.7) 50%,
+          rgba(var(--link-color), 0.6) 70%,
+          transparent 100%
+        );
+
+        /* Configuración de animación de aparición más lenta */
+        opacity: 0;
+        animation: fadeIn 600ms ease-out forwards; /* Aumentado de 400ms a 600ms */
+      }
+
+      /* Keyframes para la animación de aparición */
+      @keyframes fadeIn {
+        100% {
+          opacity: 1;
+        }
+      }
+    }
+  }
+`;
+
 const Jobs = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -244,7 +383,7 @@ const Jobs = () => {
 
   return (
     <StyledJobsSection id="jobs" ref={revealContainer}>
-      <h2 className="numbered-heading">Where I’ve worked</h2>
+      <h2 className="numbered-heading">Where I've worked</h2>
 
       <div className="inner">
         <StyledTabList role="tablist" aria-label="Job tabs" onKeyDown={e => onKeyDown(e)}>
@@ -303,6 +442,33 @@ const Jobs = () => {
             })}
         </StyledTabPanels>
       </div>
+
+      {/* Grid de citas famosas */}
+      <StyledQuotesGrid>
+        <StyledQuoteCard>
+          <p className="quote-text">
+            A partir de cierto punto no hay retorno. Ese es el punto que hay que alcanzar
+          </p>
+          <p className="quote-author">
+            -{' '}
+            <a href="/litterator.pdf" target="_blank" rel="noopener noreferrer">
+              Franz Kafka
+            </a>
+          </p>
+        </StyledQuoteCard>
+
+        <StyledQuoteCard>
+          <p className="quote-text">
+            La vida es lo que pasa mientras estás ocupado haciendo otros planes
+          </p>
+          <p className="quote-author">
+            -{' '}
+            <a href="/litterator.pdf" target="_blank" rel="noopener noreferrer">
+              John Lennon
+            </a>
+          </p>
+        </StyledQuoteCard>
+      </StyledQuotesGrid>
     </StyledJobsSection>
   );
 };

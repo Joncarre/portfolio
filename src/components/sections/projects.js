@@ -6,6 +6,7 @@ import { srConfig } from '@config';
 import sr from '@utils/sr';
 import { usePrefersReducedMotion } from '@hooks';
 import { Icon } from '@components/icons';
+import '../../styles/BorderEffect.css';
 
 const StyledProjectsSection = styled.section`
   display: flex;
@@ -80,7 +81,7 @@ const StyledProject = styled.li`
 
   .project-top {
     ${({ theme }) => theme.mixins.flexBetween};
-    margin-bottom: 35px;
+    margin-bottom: 20px; /* Cambiado de 35px a 20px */
 
     .folder {
       color: var(--green);
@@ -117,13 +118,21 @@ const StyledProject = styled.li`
   }
 
   .project-title {
-    margin: 0 0 10px;
+    margin: 0 0 15px; /* Cambiado de 10px a 15px */
     color: var(--lightest-slate);
-    font-size: var(--fz-xxl);
+    font-size: 1.4rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    position: relative;
+    display: block; /* Cambiado de inline-block a block para centrado */
+    text-align: center; /* Centrar el texto */
+    width: 100%; /* Asegurar que ocupa todo el ancho disponible */
 
     a {
       position: static;
-      transition: color 1.5s ease; /* Cambiado de 2s a 1.5s */
+      font-weight: 300;
+      letter-spacing: 1.5px;
+      transition: all 0.3s ease;
+      padding-bottom: 5px;
 
       &:before {
         content: '';
@@ -134,6 +143,26 @@ const StyledProject = styled.li`
         height: 100%;
         top: 0;
         left: 0;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -8px; /* Aumentado de 0 a -8px para separar más la línea del texto */
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to right, transparent, #e9d7a5, transparent);
+        transform: scaleX(0);
+        transition: transform 0.6s ease;
+      }
+
+      &:hover {
+        color: #e9d7a5;
+
+        &::after {
+          transform: scaleX(1);
+        }
       }
     }
   }
