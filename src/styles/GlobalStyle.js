@@ -262,6 +262,7 @@ const GlobalStyle = createGlobalStyle`
     &:hover,
     &:focus {
       color: var(--green);
+      text-decoration: none;
     }
 
     &.inline-link {

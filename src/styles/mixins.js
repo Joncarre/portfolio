@@ -61,26 +61,21 @@ const mixins = {
     &:focus-visible {
       color: var(--green);
       outline: 0;
+      // Eliminamos la animación de la línea
       &:after {
-        width: 100%;
+        width: 0;
+        background: none;
+        opacity: 0;
       }
       & > * {
         color: var(--green) !important;
         transition: var(--transition);
       }
     }
+    // Eliminamos la línea decorativa
     &:after {
       content: '';
-      display: block;
-      width: 0;
-      height: 1px;
-      position: relative;
-      bottom: 0.37em;
-      background-color: var(--green);
-      opacity: 0.5;
-      @media (prefers-reduced-motion: no-preference) {
-        transition: var(--transition);
-      }
+      display: none;
     }
   `,
 

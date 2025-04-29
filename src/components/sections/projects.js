@@ -4,8 +4,8 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import sr from '@utils/sr';
-import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
+import { Icon } from '@components/icons';
 
 const StyledProjectsSection = styled.section`
   display: flex;
@@ -51,9 +51,11 @@ const StyledProject = styled.li`
   @media (prefers-reduced-motion: no-preference) {
     &:hover,
     &:focus-within {
+      /* Eliminado el efecto de transformación:
       .project-inner {
         transform: translateY(-7px);
       }
+      */
     }
   }
 
@@ -121,6 +123,7 @@ const StyledProject = styled.li`
 
     a {
       position: static;
+      transition: color 1.5s ease; /* Cambiado de 2s a 1.5s */
 
       &:before {
         content: '';
@@ -180,7 +183,6 @@ const Projects = () => {
             frontmatter {
               title
               tech
-              github
               external
             }
             html
@@ -213,32 +215,24 @@ const Projects = () => {
 
   const projectInner = node => {
     const { frontmatter, html } = node;
-    const { github, external, title, tech } = frontmatter;
+    const { external, title, tech } = frontmatter;
 
     return (
       <div className="project-inner">
+        {/* Líneas para el efecto de borde animado */}
+        <div className="border-line"></div>
+        <div className="border-line"></div>
+        <div className="border-line"></div>
+        <div className="border-line"></div>
+        <div className="border-line"></div>
+        <div className="border-line"></div>
+
         <header>
           <div className="project-top">
             <div className="folder">
               <Icon name="Folder" />
             </div>
-            <div className="project-links">
-              {github && (
-                <a href={github} aria-label="GitHub Link" target="_blank" rel="noreferrer">
-                  <Icon name="GitHub" />
-                </a>
-              )}
-              {external && (
-                <a
-                  href={external}
-                  aria-label="External Link"
-                  className="external"
-                  target="_blank"
-                  rel="noreferrer">
-                  <Icon name="External" />
-                </a>
-              )}
-            </div>
+            <div className="project-links">{/* Eliminados los enlaces a GitHub y External */}</div>
           </div>
 
           <h3 className="project-title">
@@ -265,7 +259,7 @@ const Projects = () => {
 
   return (
     <StyledProjectsSection>
-      <h2 ref={revealTitle}>Other Noteworthy Projects</h2>
+      <h2 ref={revealTitle}>Some of my work</h2>
 
       <Link className="inline-link archive-link" to="/archive" ref={revealArchiveLink}>
         view the archive

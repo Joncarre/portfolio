@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import { srConfig } from '@config';
 import sr from '@utils/sr';
 import { Layout } from '@components';
-import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledTableContainer = styled.div`
@@ -164,27 +163,38 @@ const ArchivePage = ({ location, data }) => {
                 <th>Title</th>
                 <th className="hide-on-mobile">Made at</th>
                 <th className="hide-on-mobile">Built with</th>
-                <th>Link</th>
               </tr>
             </thead>
             <tbody>
               {projects.length > 0 &&
                 projects.map(({ node }, i) => {
-                  const {
-                    date,
-                    github,
-                    external,
-                    ios,
-                    android,
-                    title,
-                    tech,
-                    company,
-                  } = node.frontmatter;
+                  const { date, github, external, ios, android, title, tech, company } =
+                    node.frontmatter;
                   return (
                     <tr key={i} ref={el => (revealProjects.current[i] = el)}>
                       <td className="overline year">{`${new Date(date).getFullYear()}`}</td>
 
-                      <td className="title">{title}</td>
+                      <td className="title">
+                        {external ? (
+                          <a href={external} target="_blank" rel="noreferrer">
+                            {title}
+                          </a>
+                        ) : github ? (
+                          <a href={github} target="_blank" rel="noreferrer">
+                            {title}
+                          </a>
+                        ) : ios ? (
+                          <a href={ios} target="_blank" rel="noreferrer">
+                            {title}
+                          </a>
+                        ) : android ? (
+                          <a href={android} target="_blank" rel="noreferrer">
+                            {title}
+                          </a>
+                        ) : (
+                          <a href={`#${title.toLowerCase().replace(/\s+/g, '-')}`}>{title}</a>
+                        )}
+                      </td>
 
                       <td className="company hide-on-mobile">
                         {company ? <span>{company}</span> : <span>—</span>}
@@ -199,31 +209,6 @@ const ArchivePage = ({ location, data }) => {
                               {i !== tech.length - 1 && <span className="separator">&middot;</span>}
                             </span>
                           ))}
-                      </td>
-
-                      <td className="links">
-                        <div>
-                          {external && (
-                            <a href={external} aria-label="External Link">
-                              <Icon name="External" />
-                            </a>
-                          )}
-                          {github && (
-                            <a href={github} aria-label="GitHub Link">
-                              <Icon name="GitHub" />
-                            </a>
-                          )}
-                          {ios && (
-                            <a href={ios} aria-label="Apple App Store Link">
-                              <Icon name="AppStore" />
-                            </a>
-                          )}
-                          {android && (
-                            <a href={android} aria-label="Google Play Store Link">
-                              <Icon name="PlayStore" />
-                            </a>
-                          )}
-                        </div>
                       </td>
                     </tr>
                   );

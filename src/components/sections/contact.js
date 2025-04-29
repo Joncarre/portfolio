@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { srConfig, email } from '@config';
 import sr from '@utils/sr';
 import { usePrefersReducedMotion } from '@hooks';
+import GradientText from '../GradientText';
 
 const StyledContactSection = styled.section`
   max-width: 600px;
@@ -55,13 +56,19 @@ const Contact = () => {
 
   return (
     <StyledContactSection id="contact" ref={revealContainer}>
-      <h2 className="numbered-heading overline">What’s Next?</h2>
+      <h2 className="numbered-heading overline">What’s next?</h2>
 
-      <h2 className="title">Get In Touch</h2>
+      <h2 className="title">Get in touch</h2>
 
       <p>
-        Although I’m not currently looking for any new opportunities, my inbox is always open.
-        Whether you have a question or just want to say hi, I’ll try my best to get back to you!
+        I'm looking for{' '}
+        <GradientText
+          colors={['#e9d7a5', '#a18a7d', '#e9d7a5', '#a18a7d', '#e9d7a5']}
+          animationSpeed={6}>
+          new opportunities
+        </GradientText>{' '}
+        to grow within the area of resource optimization, project management and cybersecurity.
+        Whether you have a question or just want to say hi, I'll do my best to get back to you!
       </p>
 
       <a className="email-link" href={`mailto:${email}`}>
