@@ -166,14 +166,13 @@ const StyledTabPanel = styled.div`
 
 const StyledQuotesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: 1fr; /* Cambio a una sola columna en todos los tamaños de pantalla */
   grid-gap: 15px;
   margin-top: 50px;
   width: 100%;
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
+  max-width: 600px; /* Añadido un ancho máximo para limitar el tamaño de las tarjetas */
+  margin-left: auto; /* Centrar el grid horizontalmente */
+  margin-right: auto;
 `;
 
 const StyledQuoteCard = styled.div`
@@ -181,23 +180,15 @@ const StyledQuoteCard = styled.div`
   height: 100%;
   padding: 25px;
   border-radius: var(--border-radius);
-  background-color: var(--navy); /* Cambiado de var(--light-navy) a var(--navy) */
+  background-color: var(--navy);
   position: relative;
   overflow: hidden;
   transition: all 0.5s ease;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(0deg, transparent, transparent 30%, rgba(233, 215, 165, 0.3));
-    transform: rotate(-45deg);
-    transition: all 0.5s ease;
-    opacity: 0;
-    z-index: 1;
+  .author-name {
+    color: var(--lightest-slate);
+    font-size: 11px; /* Tamaño de letra más pequeño */
+    transition: color 0.5s ease; /* Transición de 0.5 segundos para el cambio de color */
   }
 
   &:hover,
@@ -210,14 +201,28 @@ const StyledQuoteCard = styled.div`
       transform: rotate(-45deg) translateY(100%);
     }
 
-    .quote-author a {
-      color: var(--green);
+    .author-name {
+      color: #e9d7a5; /* Color dorado al hacer hover en toda la tarjeta */
     }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -25%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(0deg, transparent, transparent 30%, rgba(233, 215, 165, 0.3));
+    transform: rotate(-45deg);
+    transition: all 0.7s ease;
+    opacity: 0;
+    z-index: 1;
   }
 
   .quote-text {
     color: var(--light-slate);
-    font-size: var(--fz-lg);
+    font-size: var(--fz-md); /* Reducido de var(--fz-lg) a var(--fz-md) */
     line-height: 1.5;
     margin-bottom: 15px;
     font-style: italic;
@@ -251,7 +256,7 @@ const StyledQuoteCard = styled.div`
   .quote-author {
     color: var(--slate);
     font-family: var(--font-mono);
-    font-size: var(--fz-sm);
+    font-size: var(--fz-xs); /* Reducido de var(--fz-sm) a var(--fz-xs) */
     text-align: right;
     position: relative;
     z-index: 2;
@@ -262,6 +267,7 @@ const StyledQuoteCard = styled.div`
       color: var(--lightest-slate);
       text-decoration: none;
       transition: var(--transition);
+      font-size: 10px; /* Tamaño aún más pequeño, especificado en píxeles */
 
       /* Variable para el color dorado en formato RGB */
       --link-color: 233, 215, 165;
@@ -445,29 +451,37 @@ const Jobs = () => {
 
       {/* Grid de citas famosas */}
       <StyledQuotesGrid>
-        <StyledQuoteCard>
-          <p className="quote-text">
-            A partir de cierto punto no hay retorno. Ese es el punto que hay que alcanzar
-          </p>
-          <p className="quote-author">
-            -{' '}
-            <a href="/litterator.pdf" target="_blank" rel="noopener noreferrer">
-              Franz Kafka
-            </a>
-          </p>
-        </StyledQuoteCard>
+        <a
+          href="/litterator.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ textDecoration: 'none' }}>
+          <StyledQuoteCard>
+            <p className="quote-text">
+              He exhibits remarkable empathy and patience in his daily, whose contributions have
+              made a significant impact
+            </p>
+            <p className="quote-author">
+              - <span className="author-name">María, Principal at Litterator</span>
+            </p>
+          </StyledQuoteCard>
+        </a>
 
-        <StyledQuoteCard>
-          <p className="quote-text">
-            La vida es lo que pasa mientras estás ocupado haciendo otros planes
-          </p>
-          <p className="quote-author">
-            -{' '}
-            <a href="/litterator.pdf" target="_blank" rel="noopener noreferrer">
-              John Lennon
-            </a>
-          </p>
-        </StyledQuoteCard>
+        <a
+          href="/litterator.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ textDecoration: 'none' }}>
+          <StyledQuoteCard>
+            <p className="quote-text">
+              He exhibits remarkable empathy and patience in his daily, whose contributions have
+              made a significant impact
+            </p>
+            <p className="quote-author">
+              - <span className="author-name">María, Principal at Litterator</span>
+            </p>
+          </StyledQuoteCard>
+        </a>
       </StyledQuotesGrid>
     </StyledJobsSection>
   );
