@@ -4,6 +4,6 @@ This portfolio is based on a design created by [Brittany Chiang](https://brittan
 
 ![Hero Image](/static/hero.png)
 
-## 🚧 Work in Progress
+## Work in Progress
 
 This portfolio is currently under development and has not been published yet. I'm working hard to create a showcase of my projects and skills. Stay tuned for the official launch coming soon!
