@@ -468,17 +468,20 @@ const Jobs = () => {
         </a>
 
         <a
-          href="/litterator.pdf"
+          href="/carta_fernando.pdf"
           target="_blank"
           rel="noopener noreferrer"
           style={{ textDecoration: 'none' }}>
           <StyledQuoteCard>
             <p className="quote-text">
-              He exhibits remarkable empathy and patience in his daily, whose contributions have
-              made a significant impact
+              I have no hesitation in affirming that Jonathan is a highly qualified and dedicated
+              professional whose contributions have made particularly significant
             </p>
             <p className="quote-author">
-              - <span className="author-name">María, Principal at Litterator</span>
+              -{' '}
+              <span className="author-name">
+                Fernando Rubio, professor and leader of FaDoSS researcher group
+              </span>
             </p>
           </StyledQuoteCard>
         </a>

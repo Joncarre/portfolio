@@ -1,15 +1,16 @@
 ---
-date: '2'
-title: 'Spotify Profile'
-cover: './demo.png'
-github: 'https://github.com/bchiang7/spotify-profile'
-external: 'https://spotify-profile.herokuapp.com/'
+date: '1'
+title: '3SAT Instance Generator'
+cover: './3sat.png'
+github: 'https://github.com/Joncarre/3sat_instance_generator'
+external: 'https://github.com/Joncarre/3sat_instance_generator'
 tech:
+  - Solidity
+  - Ethereum
   - React
-  - Styled Components
-  - Express
-  - Spotify API
-  - Heroku
+  - 3SAT
+  - DApp
 ---
 
-A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track. Create and save new playlists of recommended tracks based on your existing playlists and more.
+A blockchain-based tool is presented that enables
+the generation of dynamic benchmarks. By using it, we can securely manage the use of dynamic benchmarks without the need for a trusted third party.

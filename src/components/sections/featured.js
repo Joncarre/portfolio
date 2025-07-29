@@ -156,7 +156,7 @@ const StyledProject = styled.li`
     z-index: 2;
     padding: 25px;
     border-radius: var(--border-radius);
-    background-color: var(--light-navy);
+    background-color: #0a192f;
     color: var(--light-slate);
     font-size: var(--fz-lg);
 
@@ -255,7 +255,7 @@ const StyledProject = styled.li`
     a {
       width: 100%;
       height: 100%;
-      background-color: var(--green);
+      background-color: transparent;
       border-radius: var(--border-radius);
       vertical-align: middle;
 
@@ -282,7 +282,7 @@ const StyledProject = styled.li`
         bottom: 0;
         z-index: 3;
         transition: var(--transition);
-        background-color: var(--navy);
+        background-color: #0a192f;
         mix-blend-mode: screen;
       }
     }
@@ -321,7 +321,6 @@ const Featured = () => {
               tech
               github
               external
-              cta
             }
             html
           }
@@ -354,7 +353,7 @@ const Featured = () => {
         {featuredProjects &&
           featuredProjects.map(({ node }, i) => {
             const { frontmatter, html } = node;
-            const { external, title, tech, github, cover, cta } = frontmatter;
+            const { external, title, tech, github, cover } = frontmatter;
             const image = getImage(cover);
 
             return (
@@ -380,13 +379,7 @@ const Featured = () => {
                       </ul>
                     )}
 
-                    <div className="project-links">
-                      {cta && (
-                        <a href={cta} aria-label="Course Link" className="cta">
-                          Learn More
-                        </a>
-                      )}
-                    </div>
+                    <div className="project-links"></div>
                   </div>
                 </div>
 

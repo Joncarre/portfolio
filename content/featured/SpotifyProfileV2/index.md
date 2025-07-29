@@ -1,16 +1,14 @@
 ---
-date: '3'
-title: 'Build a Spotify Connected App'
-cover: './course-card.png'
-external: 'https://www.newline.co/courses/build-a-spotify-connected-app'
-cta: 'https://www.newline.co/courses/build-a-spotify-connected-app'
+date: '2'
+title: 'Hack the Box'
+cover: './hackthebox.png'
+github: 'https://github.com/Joncarre/hack-the-box'
+external: 'https://github.com/Joncarre/hack-the-box'
 tech:
-  - React
-  - Express
-  - Spotify API
-  - Styled Components
+  - Cybersecurity
+  - Python
+  - Pentesting
+  - Parrot OS
 ---
 
-Having struggled with understanding how the Spotify OAuth flow works, I made the course I wish I could have had.
-
-Unlike tutorials that only cover a few concepts and leave you with half-baked GitHub repositories, this course covers everything from explaining the principles of REST APIs to implementing Spotify's OAuth flow and fetching API data in a React app. By the end of the course, you’ll have an app deployed to the internet you can add to your portfolio.
+This project aims to document the resolution of virtual machines from the Hack The Box platform, classifying each machine by its difficulty and operating system.
