@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'J. Carrero',
     description: 'Jonathan Carrero is a Software Engineer who finished his PhD Thesis in 2023.',
-    siteUrl: 'https://brittanychiang.com', // No trailing slash allowed!
+    siteUrl: 'https://jonathancarrero.com', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '@',
   },
