@@ -8,7 +8,7 @@ module.exports = {
     },
     {
       name: 'Instagram',
-      url: 'https://scholar.google.es/citations?user=TdwutvkAAAAJ&hl=es',
+      url: 'https://www.researchgate.net/profile/Jonathan-Carrero',
     },
     {
       name: 'Linkedin',

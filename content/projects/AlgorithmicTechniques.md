@@ -1,5 +1,5 @@
 ---
-date: '2020-03-27'
+date: '2024-03-27'
 title: 'Algorithmic Techniques'
 github: ''
 external: 'https://github.com/Joncarre/c-plus-plus/tree/main/Data%20Structures%20and%20Algorithmic%20Techniques'

@@ -466,25 +466,6 @@ const Jobs = () => {
             </p>
           </StyledQuoteCard>
         </a>
-
-        <a
-          href="/carta_fernando.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ textDecoration: 'none' }}>
-          <StyledQuoteCard>
-            <p className="quote-text">
-              I have no hesitation in affirming that Jonathan is a highly qualified and dedicated
-              professional whose contributions have made particularly significant
-            </p>
-            <p className="quote-author">
-              -{' '}
-              <span className="author-name">
-                Fernando Rubio, professor and leader of FaDoSS researcher group
-              </span>
-            </p>
-          </StyledQuoteCard>
-        </a>
       </StyledQuotesGrid>
     </StyledJobsSection>
   );
