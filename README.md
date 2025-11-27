@@ -14,6 +14,7 @@ Finally, here are some of the projects I've worked on. You can find more details
 
 If you liked the project and want to contact me, feel free to reach out via LinkedIn, GitHub, or email.
 
-## Work in Progress
+✅ **Project Status**
 
-This portfolio is currently under development and has not been published yet. I'm working hard to create a showcase of my projects and skills. Stay tuned for the official launch coming soon!
+This portfolio project is now complete and can be visited to learn more about me at the following link:  
+[Jonathan Carrero](https://jonathancarrero.es)
